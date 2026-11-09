@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LAW5 · The law, in plain words (beta) · Dark edition</title>
+<meta name="description" content="LAW5 is an AI assistant that reads contracts, letters and rules with you, then explains them simply, with sources. Now in beta.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0D0B13">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%236A2CF5'/><circle cx='12' cy='14' r='3' fill='white'/><circle cx='21' cy='14' r='3' fill='white'/></svg>">
+<link rel="preload" href="fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="scrollcraft.css">
+<link rel="stylesheet" href="law5.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<!-- The reading-buddy, drawn once and reused. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 20 20"><path d="M15.5 12.6A6.5 6.5 0 0 1 7.4 4.5a6.5 6.5 0 1 0 8.1 8.1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 20 20"><circle cx="10" cy="10" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 1.8v2.2M10 16v2.2M1.8 10h2.2M16 10h2.2M4.2 4.2l1.6 1.6M14.2 14.2l1.6 1.6M4.2 15.8l1.6-1.6M14.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="mast">
+  <a class="mark" href="#top" aria-label="LAW5, back to top">
+    <span class="mark__word">LAW<span class="mark__five">5</span></span>
+    <span class="mark__beta">Beta</span>
+  </a>
+  <nav class="mast__nav" aria-label="Primary">
+    <a href="#how">How it works</a>
+    <a href="#topics">What to ask</a>
+    <a class="theme-link" href="index.html" data-theme-link>
+      <svg aria-hidden="true"><use href="#i-sun"/></svg><span>Light</span>
+    </a>
+    <a class="btn btn--small" href="#join">Join the beta</a>
+  </nav>
+</header>
+
+<!-- Folio: the page's navigation, as in a printed feature. -->
+<nav class="folio" aria-label="Chapters">
+  <button class="folio__btn" type="button" aria-expanded="false" aria-controls="folio-list">
+    <span class="folio__sec" aria-hidden="true">§</span>
+    <span class="folio__now" data-folio-now>Title page</span>
+    <svg class="folio__plus" aria-hidden="true"><use href="#i-plus"/></svg>
+  </button>
+  <ol class="folio__list" id="folio-list" hidden>
+    <li><a href="#top">Title page</a></li>
+    <li><a href="#letter"><b>1</b> The letter</a></li>
+    <li><a href="#together"><b>2</b> Read it together</a></li>
+    <li><a href="#how"><b>3</b> How it works</a></li>
+    <li><a href="#topics"><b>4</b> What to ask</a></li>
+    <li><a href="#straight"><b>5</b> Straight talk</a></li>
+    <li><a href="#join">Join the beta</a></li>
+  </ol>
+</nav>
+
+<main id="main">
+
+  <!-- TITLE PAGE ------------------------------------------------------- -->
+  <section class="hero ch ch--paper" id="top" data-sc-act="flow" data-chapter="Title page">
+    <div class="hero__inner sc-wrap">
+      <div class="hero__copy">
+        <h1 class="hero__title">The law, in <span class="hl hl--lime hl--intro">plain words.</span></h1>
+        <p class="hero__sub">LAW5 is an AI assistant that reads contracts, letters and rules with you, then explains them simply, with sources.</p>
+        <div class="hero__actions">
+          <a class="btn" href="#join">Join the beta</a>
+          <a class="link-arrow" href="#together">Watch it read <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <div class="scene" aria-hidden="true">
+        <div class="scene__plane scene__far" data-sc-parallax="-1.6"><div class="pt" style="--d:6">§</div></div>
+        <div class="scene__plane scene__doc" data-sc-parallax="-0.6">
+          <div class="pt" style="--d:14">
+            <div class="paper">
+              <p class="paper__head">Tenancy Agreement · Clause 14</p>
+              <p class="paper__text">Should the Tenant intend to terminate this Agreement upon expiry of the Fixed Term, written notice thereof shall be served upon the Landlord <span class="hl hl--coral hl--intro" style="--delay:.5s">not less than sixty (60) days prior</span> to the said expiry, failing which the tenancy shall be deemed renewed upon the terms herein contained, and the Landlord shall be entitled to retain from <span class="hl hl--sky hl--intro" style="--delay:.8s">the Security Deposit such sums as are reasonably required</span> to remedy damage, provided always that <span class="hl hl--lime hl--intro" style="--delay:1.1s">an itemised statement shall be furnished</span> to the Tenant within fourteen (14) days.</p>
+              <span class="paper__rule"></span><span class="paper__rule paper__rule--short"></span>
+            </div>
+          </div>
+        </div>
+        <div class="scene__plane scene__buddy" data-sc-parallax="-0.2">
+          <div class="pt" style="--d:22">
+            <svg class="buddy" viewBox="0 0 120 112">
+              <path class="buddy__body" d="M60 6c29.8 0 54 19.7 54 44s-24.2 44-54 44c-6 0-11.8-.8-17.2-2.3L18 104l5.6-21.5C12.6 74.4 6 62.8 6 50 6 25.7 30.2 6 60 6Z"/>
+              <g class="buddy__eyes">
+                <ellipse class="buddy__white" cx="42" cy="48" rx="12" ry="14"/><ellipse class="buddy__white" cx="78" cy="48" rx="12" ry="14"/>
+                <g class="buddy__pupils"><circle cx="44" cy="50" r="5.5"/><circle cx="80" cy="50" r="5.5"/></g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="scene__plane scene__near" data-sc-parallax="0.9">
+          <div class="pt" style="--d:30">
+            <p class="sticker sticker--coral" style="--r:-5deg;--x:-4%;--y:6%">Reply within 60 days</p>
+            <p class="sticker sticker--sky"   style="--r:4deg;--x:58%;--y:64%">Deposit: real damage only</p>
+            <p class="sticker sticker--lime"  style="--r:-3deg;--x:6%;--y:88%">You're owed a written list</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 · THE LETTER ---------------------------------------------------- -->
+  <section class="ch ch--tint letter" id="letter" data-sc-act="flow" data-chapter="1 · The letter">
+    <div class="sc-wrap letter__grid">
+      <div class="letter__copy" data-sc-in data-sc-stagger="70">
+        <p class="kicker"><b>Chapter 1</b> The letter</p>
+        <h2 class="h-lg">It always arrives on an ordinary day.</h2>
+        <p class="drop">A lease renewal. A new job contract. A fine with a reference number and no explanation. The words are English, technically, but they were written for someone else.</p>
+        <p class="body">So you read it three times, search half of it, and still are not sure what you just agreed to.</p>
+        <blockquote class="pull">The law is there to protect you. It shouldn't need a translator.</blockquote>
+      </div>
+      <figure class="letter__fig">
+        <div class="letter__sheet" data-sc-parallax="-0.8">
+          <p class="paper__head">Clause 14 · Termination and deposit</p>
+          <p class="letter__legal">Should the Tenant intend to terminate this Agreement upon expiry of the Fixed Term, written notice thereof shall be served upon the Landlord not less than sixty (60) days prior to the said expiry, failing which the tenancy shall be deemed renewed on a periodic basis upon the terms herein contained, mutatis mutandis; and the Landlord shall be entitled to retain from the Security Deposit such sums as are reasonably required to remedy damage, fair wear and tear excepted, provided always that an itemised statement of any such deductions shall be furnished to the Tenant within fourteen (14) days of vacant possession being delivered.</p>
+          <p class="letter__count">One sentence. Eighty-six words.</p>
+        </div>
+        <figcaption>Sample clause, written for this page.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2 · READ IT TOGETHER (the peak) ---------------------------------- -->
+  <section class="ch ch--paper together" id="together" data-sc-act="pin" data-sc-span="3.6" data-chapter="2 · Read it together">
+    <div data-sc-stage class="together__stage">
+      <div class="sc-wrap together__grid">
+        <div class="together__intro">
+          <p class="kicker"><b>Chapter 2</b> Read it together</p>
+          <h2 class="h-md">Same clause. Now with LAW5.</h2>
+          <p class="body together__lede">Keep scrolling. LAW5 marks each line by what it means for you, then says it in plain words.</p>
+          <ul class="legend" aria-label="Highlight colours">
+            <li><span class="dot dot--lime"></span>A right you have</li>
+            <li><span class="dot dot--coral"></span>A deadline</li>
+            <li><span class="dot dot--sky"></span>Money</li>
+            <li><span class="dot dot--butter"></span>Something you must do</li>
+          </ul>
+        </div>
+
+        <article class="doc" aria-label="Sample clause, explained line by line">
+          <div class="doc__lens" aria-hidden="true">
+            <svg class="buddy buddy--mini" viewBox="0 0 120 112">
+              <path class="buddy__body" d="M60 6c29.8 0 54 19.7 54 44s-24.2 44-54 44c-6 0-11.8-.8-17.2-2.3L18 104l5.6-21.5C12.6 74.4 6 62.8 6 50 6 25.7 30.2 6 60 6Z"/>
+              <g class="buddy__eyes">
+                <ellipse class="buddy__white" cx="42" cy="48" rx="12" ry="14"/><ellipse class="buddy__white" cx="78" cy="48" rx="12" ry="14"/>
+                <g class="buddy__pupils"><circle cx="46" cy="50" r="5.5"/><circle cx="82" cy="50" r="5.5"/></g>
+              </g>
+            </svg>
+          </div>
+          <p class="doc__head">Clause 14 <span>· sample</span></p>
+          <ol class="doc__segs">
+            <li class="seg" style="--i:0" data-ink="coral">
+              <p class="seg__legal"><span class="hl hl--coral">Should the Tenant intend to terminate this Agreement upon expiry of the Fixed Term, written notice thereof shall be served upon the Landlord not less than sixty (60) days prior to the said expiry,</span></p>
+              <p class="seg__plain"><span class="tag tag--coral">Deadline</span>Moving out when the lease ends? Tell your landlord in writing at least 60 days before.</p>
+            </li>
+            <li class="seg" style="--i:1" data-ink="butter">
+              <p class="seg__legal"><span class="hl hl--butter">failing which the tenancy shall be deemed renewed on a periodic basis upon the terms herein contained, mutatis mutandis;</span></p>
+              <p class="seg__plain"><span class="tag tag--butter">You must</span>If you don't, the lease rolls on month to month, same rules.</p>
+            </li>
+            <li class="seg" style="--i:2" data-ink="sky">
+              <p class="seg__legal"><span class="hl hl--sky">and the Landlord shall be entitled to retain from the Security Deposit such sums as are reasonably required to remedy damage, fair wear and tear excepted,</span></p>
+              <p class="seg__plain"><span class="tag tag--sky">Money</span>They can keep part of your deposit only to fix real damage, not normal wear.</p>
+            </li>
+            <li class="seg" style="--i:3" data-ink="lime">
+              <p class="seg__legal"><span class="hl hl--lime">provided always that an itemised statement of any such deductions shall be furnished to the Tenant within fourteen (14) days of vacant possession being delivered.</span></p>
+              <p class="seg__plain"><span class="tag tag--lime">Your right</span>And they owe you an itemised list of deductions within 14 days of moving out.</p>
+            </li>
+          </ol>
+          <p class="doc__sum"><b>In short:</b> give 60 days' notice in writing, and expect your deposit back minus real repairs, with a list. <span class="doc__src">Source: Clause 14, lines 1 to 4</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · HOW IT WORKS -------------------------------------------------- -->
+  <section class="ch ch--tint how" id="how" data-sc-act="flow" data-chapter="3 · How it works">
+    <div class="sc-wrap how__grid">
+      <div class="how__head" data-sc-in data-sc-stagger="70">
+        <p class="kicker"><b>Chapter 3</b> How it works</p>
+        <h2 class="h-lg">Four steps from “huh?” to “got it.”</h2>
+        <p class="body">No legal background needed. If you can send a text, you can use LAW5.</p>
+      </div>
+
+      <ol class="steps">
+        <svg class="steps__line" viewBox="0 0 4 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2 0V100" pathLength="1"/></svg>
+        <li class="step" style="--c:var(--ink-butter)">
+          <span class="step__n" aria-hidden="true">1</span>
+          <div class="step__text">
+            <h3>Ask, or drop in the document.</h3>
+            <p>Type your question the way you'd text a friend, or upload the letter, lease or contract you're stuck on.</p>
+          </div>
+          <figure class="step__art" data-sc-reveal="left" data-sc-reveal-at="0.18 0.34" aria-hidden="true">
+            <svg viewBox="0 0 220 130"><rect x="8" y="78" width="204" height="40" rx="20" class="a-surface"/><text x="28" y="103" class="a-text">Can they keep my deposit?</text><rect x="30" y="10" width="62" height="58" rx="8" class="a-paper" transform="rotate(-6 61 39)"/><path d="M40 26h38M40 36h30M40 46h36" class="a-lines" transform="rotate(-6 61 39)"/><circle cx="188" cy="98" r="13" class="a-accent"/><path d="M182 98h11M189 93l5 5-5 5" class="a-arrow"/></svg>
+          </figure>
+        </li>
+        <li class="step" style="--c:var(--ink-coral)">
+          <span class="step__n" aria-hidden="true">2</span>
+          <div class="step__text">
+            <h3>LAW5 reads it with you.</h3>
+            <p>It finds the lines that matter and marks them by meaning: rights, deadlines, money and things you must do.</p>
+          </div>
+          <figure class="step__art" data-sc-reveal="left" data-sc-reveal-at="0.30 0.46" aria-hidden="true">
+            <svg viewBox="0 0 220 130"><rect x="40" y="6" width="140" height="118" rx="10" class="a-paper"/><rect x="54" y="24" width="96" height="10" rx="3" class="a-lime"/><rect x="54" y="44" width="112" height="10" rx="3" class="a-mute"/><rect x="54" y="64" width="70" height="10" rx="3" class="a-coral"/><rect x="54" y="84" width="104" height="10" rx="3" class="a-mute"/><rect x="54" y="104" width="58" height="10" rx="3" class="a-sky"/></svg>
+          </figure>
+        </li>
+        <li class="step" style="--c:var(--ink-sky)">
+          <span class="step__n" aria-hidden="true">3</span>
+          <div class="step__text">
+            <h3>A plain answer, with sources.</h3>
+            <p>Every explanation points back to the exact line it came from, so you can check it yourself.</p>
+          </div>
+          <figure class="step__art" data-sc-reveal="left" data-sc-reveal-at="0.42 0.58" aria-hidden="true">
+            <svg viewBox="0 0 220 130"><path d="M24 14h172a12 12 0 0 1 12 12v58a12 12 0 0 1-12 12H70l-24 22 4-22H24a12 12 0 0 1-12-12V26a12 12 0 0 1 12-12Z" class="a-accent-soft"/><path d="M32 38h130M32 54h150M32 70h96" class="a-lines-accent"/><rect x="132" y="98" width="80" height="24" rx="12" class="a-sky"/><text x="144" y="114" class="a-tag">Clause 14</text></svg>
+          </figure>
+        </li>
+        <li class="step" style="--c:var(--ink-lime)">
+          <span class="step__n" aria-hidden="true">4</span>
+          <div class="step__text">
+            <h3>Know your next step.</h3>
+            <p>A short checklist: what to do, what to ask, and when it's time to talk to a real lawyer.</p>
+          </div>
+          <figure class="step__art" data-sc-reveal="left" data-sc-reveal-at="0.54 0.70" aria-hidden="true">
+            <svg viewBox="0 0 220 130"><rect x="30" y="8" width="160" height="114" rx="12" class="a-paper"/><rect x="46" y="26" width="18" height="18" rx="5" class="a-lime"/><path d="M50 35l4 4 7-8" class="a-check"/><path d="M76 35h90" class="a-lines"/><rect x="46" y="56" width="18" height="18" rx="5" class="a-lime"/><path d="M50 65l4 4 7-8" class="a-check"/><path d="M76 65h72" class="a-lines"/><rect x="46" y="86" width="18" height="18" rx="5" class="a-box"/><path d="M76 95h84" class="a-lines"/></svg>
+          </figure>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4 · WHAT TO ASK ---------------------------------------------------- -->
+  <section class="ch ch--paper topics" id="topics" data-sc-act="flow" data-chapter="4 · What to ask">
+    <div class="sc-wrap">
+      <div class="topics__head" data-sc-in data-sc-stagger="70">
+        <p class="kicker"><b>Chapter 4</b> What to ask</p>
+        <h2 class="h-lg">Everyday law, the stuff that actually lands in your inbox.</h2>
+        <p class="body">Open a topic to see the kind of questions people bring. Rules differ by place, so tell LAW5 where you are.</p>
+      </div>
+      <div class="index" data-sc-in data-sc-stagger="60">
+        <details class="topic" style="--c:var(--ink-lime)">
+          <summary><span class="topic__dot"></span><span class="topic__name">Renting and housing</span><svg class="topic__plus" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <ul class="qs"><li>Can my landlord keep my deposit for repainting?</li><li>How much notice do I have to give before moving out?</li><li>My flatmate left. Am I paying their share now?</li></ul>
+        </details>
+        <details class="topic" style="--c:var(--ink-coral)">
+          <summary><span class="topic__dot"></span><span class="topic__name">Work and contracts</span><svg class="topic__plus" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <ul class="qs"><li>What does this non-compete actually stop me doing?</li><li>Is unpaid overtime allowed under my contract?</li><li>What should I check before I sign an offer?</li></ul>
+        </details>
+        <details class="topic" style="--c:var(--ink-sky)">
+          <summary><span class="topic__dot"></span><span class="topic__name">Buying and refunds</span><svg class="topic__plus" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <ul class="qs"><li>The shop says “no refunds.” Is that allowed?</li><li>My order never arrived. What can I do now?</li><li>Can I cancel a subscription I signed up for online?</li></ul>
+        </details>
+        <details class="topic" style="--c:var(--ink-butter)">
+          <summary><span class="topic__dot"></span><span class="topic__name">Freelance and small business</span><svg class="topic__plus" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <ul class="qs"><li>What should a basic client contract include?</li><li>Who owns the work I deliver, me or the client?</li><li>A client hasn't paid. What are my options?</li></ul>
+        </details>
+        <details class="topic" style="--c:var(--sc-accent)">
+          <summary><span class="topic__dot"></span><span class="topic__name">Fines and everyday paperwork</span><svg class="topic__plus" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <ul class="qs"><li>What is this fine for, and can I contest it?</li><li>What does “jointly and severally liable” mean?</li><li>Do I need a witness to sign this form?</li></ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · STRAIGHT TALK -------------------------------------------------- -->
+  <section class="ch ch--deep straight" id="straight" data-sc-act="flow" data-chapter="5 · Straight talk">
+    <div class="straight__glyph" data-sc-parallax="-1.8" aria-hidden="true">5</div>
+    <div class="sc-wrap straight__inner">
+      <p class="kicker"><b>Chapter 5</b> Straight talk</p>
+      <h2 class="h-xl" data-sc-cue="0.12" data-sc-kinetic="lines">Helpful. Honest. Not a lawyer.</h2>
+      <dl class="vows" data-sc-in data-sc-stagger="70">
+        <div class="vow"><dt>It explains. It doesn't represent you.</dt><dd>LAW5 gives general legal information, not legal advice, and it never pretends to be your lawyer.</dd></div>
+        <div class="vow"><dt>Sources, or it says so.</dt><dd>Answers point to the line or rule they're based on. When it can't find one, it tells you instead of guessing.</dd></div>
+        <div class="vow"><dt>It knows when to hand off.</dt><dd>If your situation is serious or urgent, LAW5 says so plainly and suggests talking to a qualified lawyer.</dd></div>
+        <div class="vow"><dt>Beta means it's still learning.</dt><dd>Answers can be wrong. Check the source, and tell us when it misses. That's how it gets better.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CLOSE: colophon + sign-up ----------------------------------------- -->
+  <section class="ch ch--paper close" id="join" data-sc-act="flow" data-chapter="Join the beta">
+    <div class="sc-wrap close__grid">
+      <div class="close__copy" data-sc-in data-sc-stagger="70">
+        <h2 class="h-lg">Read the fine print with a friend.</h2>
+        <p class="body">LAW5 is in beta. Join to try it early, and tell us the first thing you'd ask. Your questions shape what ships next.</p>
+        <div class="close__buddy" aria-hidden="true">
+          <svg class="buddy" viewBox="0 0 120 112">
+            <path class="buddy__body" d="M60 6c29.8 0 54 19.7 54 44s-24.2 44-54 44c-6 0-11.8-.8-17.2-2.3L18 104l5.6-21.5C12.6 74.4 6 62.8 6 50 6 25.7 30.2 6 60 6Z"/>
+            <g class="buddy__eyes">
+              <ellipse class="buddy__white" cx="42" cy="48" rx="12" ry="14"/><ellipse class="buddy__white" cx="78" cy="48" rx="12" ry="14"/>
+              <g class="buddy__pupils"><circle cx="44" cy="50" r="5.5"/><circle cx="80" cy="50" r="5.5"/></g>
+            </g>
+          </svg>
+          <p class="sticker sticker--butter">See you inside</p>
+        </div>
+      </div>
+      <form class="signup" method="post" action="" novalidate data-endpoint="">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+        <label for="ask">The first thing you'd ask <span>(optional)</span></label>
+        <textarea id="ask" name="ask" rows="3" placeholder="My landlord wants to keep my whole deposit…"></textarea>
+        <button class="btn" type="submit">Join the beta</button>
+        <p class="signup__msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <footer class="colophon sc-wrap">
+      <span class="mark__word mark__word--sm">LAW<span class="mark__five">5</span></span>
+      <p>General legal information, not legal advice. In beta, so answers can be wrong.</p>
+      <p class="colophon__links"><a href="index.html" data-theme-link>Light edition</a><a href="#top">Back to top</a></p>
+    </footer>
+  </section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script src="law5.js"></script>
+</body>
+</html>
